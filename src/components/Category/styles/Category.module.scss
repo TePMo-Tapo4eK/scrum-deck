@@ -1,0 +1,23 @@
+.Category{
+    width: 100vw;
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: row;
+    &_List{
+        display: flex;
+        flex-direction: row;
+        max-width: calc(100vw - 6rem);
+        flex-wrap: wrap;
+        gap: 2rem;
+        .active{
+            border: none;
+        }
+        li{
+            display: flex;
+            padding: 1.4rem 3rem;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5rem;
+        }
+    }
+}

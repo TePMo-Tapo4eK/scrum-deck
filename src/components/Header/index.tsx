@@ -6,7 +6,7 @@ export const Header = (props:any) => {
     return(
         <div className={s.Header}>
             <div className={s.Header_Hello}>
-                <div className={s.Header_Hello_img}><img/></div>
+                <div className={s.Header_Hello_img}><img src={props.img}/></div>
                 <h3>Привет, {props.name}</h3>
             </div>
             <div className={s.Header_Icon}><img src={true ? add : back}/></div>
