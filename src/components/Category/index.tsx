@@ -1,6 +1,6 @@
 import s from './styles/Category.module.scss'
 
-export const Category = (props:any) => {
+export const Category = () => {
     return(
         <div className={s.Category}>
             <ul className={s.Category_List}>
