@@ -1,7 +1,7 @@
 import s from './styles/Tasks.module.scss'
 import edit from '../../edit.svg'
 
-export const Tasks = (props:any) => {
+export const Tasks = () => {
     return(
         <div className={s.Tasks}>
             <ul className={s.Tasks_List}>
