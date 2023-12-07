@@ -10,23 +10,41 @@ declare global {
     Telegram: any;
   }
 }
-
+const tg = window.Telegram.WebApp;
 
 
 function App() {
 
   const [data, setData] = useState([]);
+  let userId = 19
+  const [userTeams, setUserTeams] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get('http://195.80.50.93:25767/GetTasks/9');
-      setData(response.data);
+    const fetchTeams = async () => {
+      axios.get('https://cors-anywhere.herokuapp.com/' + 'http://195.80.50.93:25767/GetMyTeams/' + userId)
+      .then((response) => {
+        setUserTeams(response.data.TeamsList);
+    })
+    .catch((error) => {
+      console.error(error);
+  });
     };
-
+    const fetchData = async () => {
+      axios.get('https://cors-anywhere.herokuapp.com/' + 'http://195.80.50.93:25767/GetTasks/' + userTeams[0])
+      .then((response) => {
+        setData(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+  });
+    };
+    fetchTeams();
     fetchData();
   }, []);
+
+  console.log(userTeams)
   console.log(data)
-  const tg = window.Telegram.WebApp;
+
 
   return (
     <>
