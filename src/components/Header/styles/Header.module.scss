@@ -1,0 +1,20 @@
+.Header{
+    height: 11rem;
+    display: flex;
+    align-items: center;
+    padding: 2.5rem 3rem ;
+    justify-content: space-between;
+    &_Hello{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 2.5rem;
+        color: #DCC1FF;
+        &_img{
+            height: 6rem;
+            width: 6rem;
+            background-color: aliceblue;
+            border-radius: 5rem;
+        }
+    }
+}
