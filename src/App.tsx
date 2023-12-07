@@ -52,6 +52,9 @@ function App() {
         img={tg.initDataUnsafe?.user?.photo_url}
         name={tg.initDataUnsafe?.user?.username ? tg.initDataUnsafe.user.username : 'Друг'}
       />
+      {userId}
+      {JSON.stringify(userTeams)}
+      {JSON.stringify(data)}
       <Category />
       <Tasks array={data} />
     </>
