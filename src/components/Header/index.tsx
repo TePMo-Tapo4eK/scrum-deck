@@ -9,7 +9,7 @@ export const Header = (props:any) => {
                 <div className={s.Header_Hello_img}><img/></div>
                 <h3>Привет, {props.name}</h3>
             </div>
-            <div className={s.Header_Icon}><img src={add}/></div>
+            <div className={s.Header_Icon}><img src={true ? add : back}/></div>
         </div>
     )
 }
