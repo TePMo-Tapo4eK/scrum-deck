@@ -16,7 +16,7 @@ const tg = window.Telegram.WebApp;
 function App() {
 
   const [data, setData] = useState([]);
-  let userId = 19
+  let userId = tg.initDataUnsafe?.user?.id
   const [userTeams, setUserTeams] = useState([]);
 
   useEffect(() => {
@@ -29,6 +29,9 @@ function App() {
       console.error(error);
   });
     };
+    fetchTeams();
+  }, []);
+  useEffect(() => {
     const fetchData = async () => {
       axios.get('https://cors-anywhere.herokuapp.com/' + 'http://195.80.50.93:25767/GetTasks/' + userTeams[0])
       .then((response) => {
@@ -38,9 +41,8 @@ function App() {
       console.error(error);
   });
     };
-    fetchTeams();
     fetchData();
-  }, []);
+  }, [userId]);
 
   console.log(userTeams)
   console.log(data)
