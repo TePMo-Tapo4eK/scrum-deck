@@ -1,7 +1,8 @@
 import s from './styles/Tasks.module.scss'
 import edit from '../../edit.svg'
 
-export const Tasks = () => {
+export const Tasks = (props:any) => {
+    console.log(props.array)
     return(
         <div className={s.Tasks}>
             <ul className={s.Tasks_List}>
