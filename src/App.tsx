@@ -58,6 +58,9 @@ function App() {
         setModalData={setModalData} modalData={modalData}/>
       {modal ? <Edit data={modalData}/> : null}
       <Category sort={sort} setSort={setSort}/>
+      {JSON.stringify(userTeams)}
+      {JSON.stringify(data)}
+
       <Tasks array={data} setClose={setClose} close={close} modal={modal} setModal={setModal} setModalData={setModalData}/>
     </>
   );
