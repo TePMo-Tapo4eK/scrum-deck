@@ -16,7 +16,7 @@ export const Tasks = (props:any) => {
         <div className={s.Tasks}>
             <ul className={s.Tasks_List}>
                 
-                {props.array.map((e:any, i:number) => 
+                {props.array.map((e:any) => 
                 <li onClick={()=>{props.setModal(!props.modal); props.setModalData(e); props.setClose(!props.close)} } className={s.Task} style={{border: `solid 0.3rem ${ e.State == 0 ? "#F5F378" : e.State == 1 || e.State == 3 ? "#DCC1FF" : e.State == 2 ? "#EC704B" : "#FFFFFF"}`}}>
                 <div className={s.Task_Name}>
                     <p>{e.Name}</p>
