@@ -21,7 +21,7 @@ function App() {
   const [modalData, setModalData] = useState({});
   const [data, setData]:any = useState([]);
   const [userPos, setUserPos] = useState([])
-  let userId = 1012143469
+  let userId = tg.initDataUnsafe?.user?.id
   const [userTeams, setUserTeams]:any = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -44,18 +44,6 @@ function App() {
 
     fetchData();
   }, [userId]);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     axios.get('https://cors-anywhere.herokuapp.com/' + 'http://195.80.50.93:25767/GetTasks/' + userTeams[0].Id)
-  //     .then((response) => {
-  //       setData(response.data);
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  // });
-  //   };
-  //   fetchData();
-  // }, [userTeams]);
   console.log(userPos)
   console.log(userTeams[0])
   console.log(data)
