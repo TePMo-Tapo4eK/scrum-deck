@@ -34,7 +34,7 @@ function App() {
         const teamsData = teamsResponse.data.TeamsList;
         setUserTeams(teamsData);
 
-        const tasksResponce = await axios.get(`https://cors-anywhere.herokuapp.com/http://195.80.50.93:25767/GetTasks/${userTeams[0].Id}`);
+        const tasksResponce = await axios.get(`https://cors-anywhere.herokuapp.com/http://195.80.50.93:25767/GetTasks/${teamsData[0].Id}`);
         const teamsTasks = tasksResponce.data;
         setData(teamsTasks);
       } catch (error) {
@@ -45,7 +45,6 @@ function App() {
     fetchData();
   }, [userId]);
   console.log(userPos)
-  console.log(userTeams[0].Id)
   console.log(data)
   
 
@@ -59,7 +58,7 @@ function App() {
       {modal ? <Edit data={modalData}/> : null}
       <Category sort={sort} setSort={setSort}/>
       {userId}
-      {JSON.stringify(userTeams[0].Id)}
+      {JSON.stringify(userTeams[0])}
       {JSON.stringify(userTeams)}
       {JSON.stringify(data)}
 
