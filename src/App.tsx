@@ -21,7 +21,7 @@ function App() {
   const [modalData, setModalData] = useState({});
   const [data, setData]:any = useState([]);
   const [userPos, setUserPos] = useState([])
-  let userId = tg.initDataUnsafe?.user?.id
+  let userId = tg.initDataUnsafe.user.id
   const [userTeams, setUserTeams]:any = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -58,6 +58,7 @@ function App() {
         setModalData={setModalData} modalData={modalData}/>
       {modal ? <Edit data={modalData}/> : null}
       <Category sort={sort} setSort={setSort}/>
+      {userId}
       {JSON.stringify(userTeams)}
       {JSON.stringify(data)}
 
