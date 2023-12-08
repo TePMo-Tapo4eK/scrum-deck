@@ -9,7 +9,7 @@ export const Header = (props:any) => {
                 <div className={s.Header_Hello_img}><img src={props.img}/></div>
                 <h3>Привет, {props.name}</h3>
             </div>
-            <div className={s.Header_Icon}><img src={true ? add : back}/></div>
+            <div className={s.Header_Icon} onClick={() => {props.setClose(!props.close); props.setModal(!props.modal)}}><img src={props.close ? add : back}/></div>
         </div>
     )
 }

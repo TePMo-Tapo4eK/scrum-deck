@@ -1,5 +1,11 @@
 .Header{
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    top: 0;
     height: 11rem;
+    width: 100vw;
+    background-color: #1e1e1e;
     display: flex;
     align-items: center;
     padding: 2.5rem 3rem ;

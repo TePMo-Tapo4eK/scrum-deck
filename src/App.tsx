@@ -4,6 +4,7 @@ import './App.css';
 import { Category } from './components/Category';
 import { Header } from './components/Header';
 import { Tasks } from './components/Tasks';
+import { Edit } from './pages/Edit';
 
 declare global {
   interface Window {
@@ -14,51 +15,62 @@ const tg = window.Telegram.WebApp;
 
 
 function App() {
-
-  const [data, setData] = useState([]);
-  let userId = tg.initDataUnsafe?.user?.id
-  const [userTeams, setUserTeams] = useState([]);
-
-  useEffect(() => {
-    const fetchTeams = async () => {
-      axios.get('https://cors-anywhere.herokuapp.com/' + 'http://195.80.50.93:25767/GetMyTeams/' + userId)
-      .then((response) => {
-        setUserTeams(response.data.TeamsList);
-    })
-    .catch((error) => {
-      console.error(error);
-  });
-    };
-    fetchTeams();
-  }, []);
+  const [sort, setSort] = useState(1);
+  const [close, setClose] = useState(true);
+  const [modal, setModal] = useState(!true);
+  const [modalData, setModalData] = useState({});
+  const [data, setData]:any = useState([]);
+  const [userPos, setUserPos] = useState([])
+  let userId = 1012143469
+  const [userTeams, setUserTeams]:any = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      axios.get('https://cors-anywhere.herokuapp.com/' + 'http://195.80.50.93:25767/GetTasks/' + userTeams[0])
-      .then((response) => {
-        setData(response.data);
-    })
-    .catch((error) => {
-      console.error(error);
-  });
+      try {
+        const posResponse = await axios.get(`https://cors-anywhere.herokuapp.com/http://195.80.50.93:25767/GetMyId/${userId}`);
+        const posData = posResponse.data;
+        setUserPos(posData);
+
+        const teamsResponse = await axios.get(`https://cors-anywhere.herokuapp.com/http://195.80.50.93:25767/GetMyTeams/${posData}`);
+        const teamsData = teamsResponse.data.TeamsList;
+        setUserTeams(teamsData);
+
+        const tasksResponce = await axios.get(`https://cors-anywhere.herokuapp.com/http://195.80.50.93:25767/GetTasks/${userTeams[0].Id}`);
+        const teamsTasks = tasksResponce.data;
+        setData(teamsTasks);
+      } catch (error) {
+        console.error(error);
+      }
     };
+
     fetchData();
   }, [userId]);
-
-  console.log(userTeams)
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     axios.get('https://cors-anywhere.herokuapp.com/' + 'http://195.80.50.93:25767/GetTasks/' + userTeams[0].Id)
+  //     .then((response) => {
+  //       setData(response.data);
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  // });
+  //   };
+  //   fetchData();
+  // }, [userTeams]);
+  console.log(userPos)
+  console.log(userTeams[0])
   console.log(data)
-
+  
 
   return (
     <>
       <Header
         img={tg.initDataUnsafe?.user?.photo_url}
         name={tg.initDataUnsafe?.user?.username ? tg.initDataUnsafe.user.username : 'Друг'}
-      />
-      {userId}
-      {JSON.stringify(userTeams)}
-      {JSON.stringify(data)}
-      <Category />
-      <Tasks array={data} />
+        setModal={setModal} setClose={setClose} close={close} modal={modal}
+        setModalData={setModalData} modalData={modalData}/>
+      {modal ? <Edit data={modalData}/> : null}
+      <Category sort={sort} setSort={setSort}/>
+      <Tasks array={data} setClose={setClose} close={close} modal={modal} setModal={setModal} setModalData={setModalData}/>
     </>
   );
 }
