@@ -21,7 +21,7 @@ function App() {
   const [modalData, setModalData] = useState({});
   const [data, setData]:any = useState([]);
   const [userPos, setUserPos] = useState([])
-  let userId = 688414105
+  let userId = tg.initDataUnsafe?.user?.id
   const [userTeams, setUserTeams]:any = useState([]);
   useEffect(() => {
     const fetchData = async () => {
