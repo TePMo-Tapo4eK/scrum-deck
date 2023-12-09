@@ -18,10 +18,10 @@ function App() {
   const [sort, setSort] = useState(1);
   const [close, setClose] = useState(true);
   const [modal, setModal] = useState(!true);
-  const [modalData, setModalData] = useState({});
+  
   const [data, setData]:any = useState([]);
   const [userPos, setUserPos] = useState([])
-  let userId = tg.initDataUnsafe?.user?.id
+  let userId = 688414105
   const [userTeams, setUserTeams]:any = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +43,20 @@ function App() {
     };
 
     fetchData();
-  }, [userId]);
+  }, []);
+  const [modalData, setModalData] = useState({
+    Id: 15,
+    Name: "Название",
+    Descryption: "Описание задачи",
+    Executor: {
+      Id: {userPos},
+      TgId: {userId},
+      Username: tg.initDataUnsafe?.user?.username,
+      Role: 0
+    },
+    Deadline: "1970-01-01",
+    State: 0
+  });
   console.log(userPos)
   console.log(data)
   
