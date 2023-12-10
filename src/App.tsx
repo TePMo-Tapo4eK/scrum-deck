@@ -25,7 +25,6 @@ function App() {
 
   const [data, setData] = useState([]);
   const [userPos, setUserPos] = useState([]);
-  const [userTeams, setUserTeams] = useState([]);
   const [ispoln, setIspoln] = useState();
   const [team, setTeam] = useState(9);
 
@@ -40,7 +39,6 @@ function App() {
 
         const teamsResponse = await axios.get(`https://cors-anywhere.herokuapp.com/http://195.80.50.93:25767/GetMyTeams/${userPos}`);
         const teamsData = teamsResponse.data.TeamsList;
-        setUserTeams(teamsData);
         setTeam(teamsData[0].Id)
 
         const tasksResponce = await axios.get(`https://cors-anywhere.herokuapp.com/http://195.80.50.93:25767/GetTasks/${teamsData[0].Id}`);
