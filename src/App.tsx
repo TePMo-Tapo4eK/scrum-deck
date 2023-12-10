@@ -80,10 +80,6 @@ function App() {
       <div className='View'>
         
         <Category sort={sort} setSort={setSort} />
-      {userId}
-      {JSON.stringify(userTeams[0])}
-      {JSON.stringify(userTeams)}
-      {JSON.stringify(data)}
       <Tasks
         array={data}
         setClose={setClose}
