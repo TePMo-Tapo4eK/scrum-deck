@@ -23,7 +23,7 @@ export const Tasks = (props:any) => {
                 </div>
                 <div className={s.Task_Status}>
                     <p>{e.Deadline}</p>
-                    <p>{e.State}</p>
+                    <p>{e.State == 0 ? "Ожидается" : e.State == 1 ? "В работе" : e.State == 2 ? "Тестирование" : e.State == 3 ? "На исправлении": "Завершено"}</p>
                     <p>{e.Executor.Username}</p>
                 </div>
             </li>
