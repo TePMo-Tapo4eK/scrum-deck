@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import s from './styles/Create.module.scss';
 import axios from 'axios';
 
