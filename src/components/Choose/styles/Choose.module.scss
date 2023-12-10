@@ -1,0 +1,109 @@
+.Select {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1e1e1e;
+    gap:5rem;
+    z-index: 99;
+  
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+    }
+  
+    &_Options {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-width: 40rem;
+      overflow: scroll;
+      li {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        cursor: pointer;
+  
+        &:hover {
+          color: #666;
+        }
+      }
+    }
+  
+    &_Choose {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  
+      h2 {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+      }
+      p{
+        font-size: 2.6rem;
+        margin-bottom: 1rem;
+        color: #F5F378;
+      }
+
+    }
+    .Select {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      
+        h1 {
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+      
+        &__Options {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+      
+          li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            cursor: pointer;
+      
+            &:hover {
+              color: #666;
+            }
+          }
+        }
+      
+        &__Choose {
+          margin-top: 20px;
+      
+          h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+          }
+      
+          p {
+            font-size: 16px;
+            color: #666;
+          }
+        }
+      }
+      .but{
+        display: flex;
+            padding: 1.4rem 3rem;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5rem;
+            background-color: #F5F378;
+    }
+    .ina{
+        background-color: #1e1e1e;
+        color: #ffffffbb;
+      }
+  }
